@@ -119,16 +119,14 @@ public class ArbolBinario {
 
 
     private boolean buscarRec(Nodo raiz, int clave) {
-        
+
         if (raiz.clave == clave) {
             System.out.println("Hay duplicidad con el numero " + clave);
             return true;
-        } else if (raiz == null) {
-            System.out.println("ss");
         }
-
         if(raiz == null){
             System.out.println("Es numero" + clave + " es la raiz");
+            return true;
         }
         if (clave < raiz.clave) {
             System.out.println("El numero "+ clave + " se debe de buscar en el subarbol izquierda");
@@ -136,9 +134,7 @@ public class ArbolBinario {
             System.out.println("El numero" + clave +" se debe buscar en el subarbol de la derecha");
         }
         // TODO: desarrollar búsqueda recursiva
-
         return false;
-
     }
 
 
