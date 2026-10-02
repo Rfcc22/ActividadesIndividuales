@@ -124,7 +124,7 @@ public class ArbolBinario {
             System.out.println("Hay duplicidad con el numero " + clave);
             return true;
         } else if (raiz == null) {
-            
+            System.out.println();
         }
 
         if(raiz == null){
