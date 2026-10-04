@@ -120,24 +120,20 @@ public class ArbolBinario {
 
     private boolean buscarRec(Nodo raiz, int clave) {
 
-        if (raiz.clave == clave) {
+        if (raiz == null) {
+            return false;
+        } else if (raiz.clave == clave) {
             System.out.println("Hay duplicidad con el numero " + clave);
             return true;
-        }
-        if(raiz == null){
-            System.out.println("Es numero" + clave + " es la raiz");
-            return true;
-        }
-        if (clave < raiz.clave) {
+        } else if (clave < raiz.clave) {
             System.out.println("El numero "+ clave + " se debe de buscar en el subarbol izquierda");
-        } else if (clave > raiz.clave) {
-            System.out.println("El numero" + clave +" se debe buscar en el subarbol de la derecha");
+            return buscarRec(raiz.izquierdo,clave);
+        } else {
+            System.out.println("El numero " + clave +" se debe buscar en el subarbol de la derecha");
+            return buscarRec(raiz.derecho,clave);
         }
-        // TODO: desarrollar búsqueda recursiva
-        return false;
+
     }
-
-
 
     // ELIMINACIÓN: ACTIVIDAD 2
 
@@ -151,11 +147,34 @@ public class ArbolBinario {
 
     private Nodo eliminarRec(Nodo raiz, int clave) {
 
+        if (raiz == null) {
+            System.out.println("El numero" + clave + " no esta en el arbol");
+            return null;
+        } else if (clave < raiz.clave) {
+            raiz.izquierdo =  eliminarRec(raiz.izquierdo,clave);
+            return raiz;
+        } else if (clave > raiz.clave) {
+            raiz.derecho =  eliminarRec(raiz.derecho,clave);
+            return raiz;
+        } else {
+            if (raiz.izquierdo != null && raiz.derecho == null){
+                return raiz.izquierdo;
+            } else if (raiz.izquierdo == null && raiz.derecho != null) {
+                return raiz.derecho;
+            } else if (raiz.izquierdo != null && raiz.derecho != null){
+                raiz.clave = menorValor(raiz.derecho);
+                raiz.derecho = eliminarRec(raiz.derecho, raiz.clave);
+                return raiz;
+            } else {
+                return null;
+            }
+        }
         // TODO: desarrollar eliminación recursiva
 
-        return raiz;
+        //return raiz;
 
     }
+
 
 
 
@@ -163,6 +182,12 @@ public class ArbolBinario {
 
     // TODO: encontrar el menor valor de un subárbol
 
+    public int menorValor(Nodo nodo){
+        while (nodo.izquierdo != null){
+            nodo = nodo.izquierdo;
+        }
+        return nodo.clave;
+    }
 
 
     public static void main(String[] args) {

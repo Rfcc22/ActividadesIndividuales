@@ -1,5 +1,6 @@
 
-![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
 
 Amarillo : Raiz 
 Azul : Padres
@@ -7,9 +8,7 @@ Verde : Hojas
 
 
 ¿Qué propiedad debe cumplir todo Árbol Binario de Búsqueda? 
-
-
-
+- Que los valores del subarbol izquirdo deben de ser menores que el padre y los del subarbol derecho deben de ser mayores que el padre
 
 ¿Cuál es la raíz del árbol construido?  
  - la raiz es 50
@@ -22,5 +21,85 @@ Verde : Hojas
   - Derecho: 30, 40, 20
 
 ¿Qué secuencia esperas obtener con el recorrido inorden? 
- - 80, 70, 60, 50, 40, 30, 20
+ - 20, 30, 40, 50, 60, 70, 80
+
+## Busqueda
+
+¿Por qué no es necesario recorrer todos los nodos del árbol para buscar una clave? 
+ - No es necesario reccorrer todos los nodos ya que podemos solamente recorrer el mismo camino que ese nodo debio de seguir para anadirse al arbol para encontrarlo
+
+Si se busca 40, ¿qué nodos se visitan y en qué orden? 
+ - Comenzaria en la raiz luego iria al nodo 30 que se encuentra en la derecha y por ultimo iria al nodo 40 de la izquierda 
+
+Si se busca 90, ¿qué condición permitirá concluir que no existe? 
+ - Encontraria null en vez de el número 
+
+¿Qué valor booleano debe regresar el caso base cuando el nodo actual es null? 
+ - Regresaria false
+
+¿Qué ocurriría si el árbol no respetara la regla menor-izquierda y mayor-derecha? 
+ - Si no se respetara esta regla no podríamos encontrar con facilidad la ubicación de los elementos del arbol
+
+## Eliminacion
+
+¿Por qué la eliminación requiere más casos que la búsqueda? 
+ - Requiere mas casos de búsqueda porque tienes que encontrar el nodo y checar si ese nodo tiene hijos
+
+¿Qué debe ocurrir si la clave que se desea eliminar no existe? 
+ - Si no existe simplemente no se elimina nada
+
+¿Por qué eliminar un nodo hoja es el caso más sencillo? 
+ - Es el caso más sencillo porque solo se tiene que encontrar la posicion del nodo, no hay que remplazar el nodo padre por uno de sus hijos
+
+Si un nodo tiene solamente un hijo, ¿por qué puede devolverse directamente la referencia a ese hijo? 
+ - Porque después de eliminar el nodo padre, el nodo hijo debe de tomar su posicion
+
+¿Por qué el menor valor del subárbol derecho es un candidato adecuado para sustituir a un nodo con dos hijos? 
+ - Porque ese número es más grande que el número del subárbol de la izquierda y como consecuencia de eso solo hay que sustituir el padre original por el valor de la derecha y como el valor de la izquirda sigue siendo mas pequeño que el nuevo padre no cambia de posición
+
+Después de copiar el valor sustituto, ¿por qué todavía es necesario eliminar ese valor de su ubicación original? 
+ - Para evitar valores duplicados
+
+¿Qué riesgo existiría si se eliminara un nodo con dos hijos sin reconectar correctamente sus subárboles? 
+ - Se perdería información, ya que habrian nodos que no están relacionados con ningun otro dato
+
+¿Por qué eliminar la raíz puede modificar la variable raiz del árbol? 
+ - Porque la raíz es un nodo como las demás ramas del árbol, por lo que si la eliminamos el nodo de la raiz se va a sustituir por el nodo de la derecha
+
+¿Qué propiedad debe seguir cumpliendo el árbol después de cualquier eliminación? 
+ - Que los valore a la izquierda de un padre deben de ser menores y los valores a la derecha deben de ser mayores que el padre
+
+## Metodo Auxiliar
+
+¿Hacia qué dirección debes desplazarte para encontrar el mínimo?  
+ - Hacia la izquierda
+
+¿Qué condición indica que ya encontraste el nodo mínimo?  
+ - Si el nodo no tiene ningún hijo a la izquierda
+
+¿Cuál es el mínimo del subárbol cuya raíz es 70 en el árbol inicial?  
+ - Usando los mismos valores que utilizamos en este problema el valor mínimo sería 20
+
+## Reflexiones finales
+
+¿Cómo ayuda el recorrido inorden a comprobar que el ABB conserva su estructura? 
+ - Te permite ver los nodos y como están conectados entre ellos, debido a esto es posible determinar si hubo un cambio grande en la estructura del arbol despues de añadir o eliminar un nodo
+
+Explica con tus palabras el caso de eliminación que consideraste más difícil. 
+- Es caso que considero que es más difícil es el de eliminar un padre que tiene dos hijos porque hay que remplazar el padre por uno de los hijos y ver que el nuevo padre tenga los mismos hijos que el padre original
+
+¿Qué papel cumple la recursividad en los métodos de búsqueda y eliminación? 
+- La recursividad te permite recorrer el árbol
+
+¿Qué aprendiste sobre el cambio de referencias entre nodos al eliminar elementos? 
+- cuando se elimina un nodo padre con un hijo el hijo va a tomar la posición del padre, cuando se elimina un padre con 2 hijos el hijo de la derecha va a tomar la posición del padre manteniendo sus connections con otros nodos. 
+
+Si tuvieras que explicar a un compañero la diferencia entre buscar y eliminar en un ABB, ¿qué le dirías? 
+ - Tanto buscar como eliminar van a recorrer el árbol como si estuvieran añadiendo un elemento la diferencia es que buscar va a recorer el arbol hasta encontrar un valor identido y lo regresa, mientras que eliminar va recorer el arbol hasta encontrar el elemento y luego va a checar si tiene hijos
+
+
+Imágenes de salida:
+
+![img_2.png](img_2.png)
+
 
