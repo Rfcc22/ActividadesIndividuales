@@ -179,7 +179,11 @@ public class Grafo {
         ArrayList<Arista> incidentes = new ArrayList<>();
         // TODO: Recorrer todas las aristas
         // Si la arista incide en v (usar método incideEn), agregarla a la lista
-
+        for (Arista a : aristas){
+            if (a.incideEn(v)){
+                incidentes.add(a);
+            }
+        }
         return incidentes;
     }
 
@@ -197,7 +201,11 @@ public class Grafo {
         //   - Si comparte al menos un punto extremo con 'a' → agregarla
         // Pista: Una arista 'b' es adyacente a 'a' si:
         //   b.incideEn(a.getExtremo1()) || b.incideEn(a.getExtremo2())
-
+        for (Arista b : aristas){
+            if (b.incideEn(a.getExtremo1()) || b.incideEn(a.getExtremo2())){
+                adyacentes.add(b);
+            }
+        }
         return adyacentes;
     }
 
@@ -211,6 +219,11 @@ public class Grafo {
         ArrayList<Arista> bucles = new ArrayList<>();
         // TODO: Recorrer todas las aristas
         // Si la arista es un bucle (usar método esBucle), agregarla a la lista
+        for (Arista a : aristas){
+            if (a.esBucle()){
+                bucles.add(a);
+            }
+        }
 
         return bucles;
     }
@@ -227,7 +240,13 @@ public class Grafo {
         // Para evitar duplicados, el segundo ciclo inicia en i+1
         // Si arista_i es paralela a arista_j → agregar descripción al resultado
         // Formato: "{e2, e3}"
-
+        for (Arista a : aristas){
+            for (Arista b : aristas) {
+                if(a.esParalela(b)){
+                    paralelas.add("{"+a+", "+b+"}");
+                }
+            }
+        }
         return paralelas;
     }
 
@@ -242,7 +261,11 @@ public class Grafo {
         // TODO: Recorrer todos los vértices
         // Si el vértice es aislado (grado == 0), agregarlo a la lista
         // Nota: Asegurarse de que calcularGradoTotal() se haya ejecutado antes
-
+        for (Vertice v : vertices){
+            if (v.esAislado()){
+                aislados.add(v);
+            }
+        }
         return aislados;
     }
 
@@ -269,6 +292,10 @@ public class Grafo {
         //   - Si es bucle → imprimir: | e6     | {v5} [BUCLE]        |
         //   - Si no es bucle → imprimir: | e1     | {v1, v2}            |
         // Usar System.out.printf para alinear columnas
+        for (Arista a : aristas){
+            System.out.println(a);
+            System.out.println();
+        }
     }
 
 
@@ -283,6 +310,6 @@ public class Grafo {
     @Override
     public String toString() {
         // TODO: Retornar "Grafo [nombre]: |V| = X, |E| = Y"
-        return "";
+        return "Grafo ["+this.nombre+"]: [V] = "+this.vertices.size()+"[E] + " + this.aristas.size();
     }
 }
