@@ -293,7 +293,7 @@ public class Grafo {
         //   - Si no es bucle → imprimir: | e1     | {v1, v2}            |
         // Usar System.out.printf para alinear columnas
         for (Arista a : aristas){
-            System.out.println(a);
+            System.out.println(a.toString());
             System.out.println();
         }
     }
