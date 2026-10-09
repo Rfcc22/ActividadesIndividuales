@@ -1,7 +1,7 @@
-public class PruebaMatrizAdyacencia {
+public class pruebaMatrizAdyacencia {
     private MatrizAdyacencia ma;
 
-    public PruebaMatrizAdyacencia() {
+    public pruebaMatrizAdyacencia() {
         final int SIZE = 5; this.ma = new MatrizAdyacencia(SIZE);
     }
     public void procesarMatriz() {
@@ -17,8 +17,6 @@ public class PruebaMatrizAdyacencia {
     ma.crearMatrizAdyacencia(); //impresión matriz de adyacencia ma.imprimir();
     }
     public static void main(String[] args) {
-    PruebaMatrizAdyacencia app = new PruebaMatrizAdyacencia();
-    app.procesarMatriz(); }
+    pruebaMatrizAdyacencia app = new pruebaMatrizAdyacencia();
+    app.procesarMatriz();
 }
-        }
-    Hernández Bejarano, M. y Baquero Rey, L. E. (2022). Estructuras de datos: fundamentación práctica: (1 ed.). Madrid, RA-MA Editorial. Recuperado de https://elibro.net/es/ereader/mayab/230581?page=291.

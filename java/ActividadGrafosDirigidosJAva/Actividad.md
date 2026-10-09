@@ -50,4 +50,8 @@ a)
  * No es posible el camino entre a y c
  * Hay un camino cerrado puedes ir de a - a (a -> b -> d -> a)
  * Hay un camino simple de a - d (a -> d)
- * 
+ * a (grado 2), b (grado 2), d (grado 2), c (grado 0)
+
+b)
+
+* Adyacentes : 
