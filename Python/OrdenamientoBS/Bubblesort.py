@@ -29,8 +29,9 @@ def bubble_sort_decendente(array):
     return array  
 
 
-print("\nBubble sort acendente")
+
+print("\nBubble sort acendente\n")
 print(bubble_sort_acendente(weather))
 
-print("\nBubble sort decendiente")
+print("\nBubble sort decendiente\n")
 print(bubble_sort_decendente(weather))
